@@ -5,6 +5,7 @@
     collation: "{{ item.collation }}"
     encoding: "{{ item.encoding }}"
     state: present
+    login_unix_socket: /var/run/mysqld/mysqld.sock
   with_items: "{{ mysql_databases }}"
 
 - name: create mysql users

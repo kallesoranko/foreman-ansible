@@ -1,20 +1,24 @@
 ---
+- name: template .my.cnf
+  template:
+    src: auth.my.cnf.j2
+    dest: /root/.my.cnf
+    owner: root
+    group: root
+    mode: 0640
+
 - name: update mysql root password for all root accounts
   mysql_user:
     name: root
     host: "{{ item }}"
     password: "{{ mysql_root_password }}"
-    check_implicit_admin: yes
+    check_implicit_admin: true
+    # priv: "*.*:ALL"
     login_user: "{{ mysql_root_username }}"
     login_password: "{{ mysql_root_password }}"
     state: present
+    # login_unix_socket: /var/run/mysqld/mysqld.sock
   with_items: "{{ mysql_root_user_hosts }}"
-
-- name: template .my.cnf
-  template:
-    src: auth.my.cnf.j2
-    dest: /root/.my.cnf
-    mode: 0640
 
 - name: remove anonymous mysql users
   mysql_user:

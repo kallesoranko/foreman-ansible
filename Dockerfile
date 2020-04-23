@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 RUN apt-get update && \
     apt-get install software-properties-common -y && \
@@ -10,6 +10,6 @@ COPY . .
 WORKDIR /ansible
 USER root
 
-RUN ansible -i /inventory --connection=local local -m ping
+RUN ansible --connection=local localhost -m ping
 
 ENTRYPOINT [ "sh", "/docker-entrypoint.sh" ]
