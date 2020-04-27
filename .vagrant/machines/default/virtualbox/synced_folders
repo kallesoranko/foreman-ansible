@@ -1,1 +1,0 @@
-{"virtualbox":{"/foreman-ansible":{"guestpath":"/foreman-ansible","hostpath":"/Users/kallesoranko/karlstorz/foreman-ansible","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/kallesoranko/karlstorz/foreman-ansible","disabled":false,"__vagrantfile":true}}}

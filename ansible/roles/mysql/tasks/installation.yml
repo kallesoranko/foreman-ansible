@@ -1,5 +1,6 @@
 ---
 - name: install mysql
+  become: yes
   package:
     name: "{{ item }}"
     state: present
@@ -7,11 +8,13 @@
   register: mysql_installed
 
 - name: enable mysql service
+  become: yes
   service:
     name: "{{ mysql_service }}"
     enabled: yes
 
 - name: start mysql service
+  become: yes
   service:
     name: "{{ mysql_service }}"
     state: started
