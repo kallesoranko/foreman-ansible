@@ -1,10 +1,12 @@
 ---
 # This playbook deploys foreman together with passenger_nginx and mysql
 # including foreman-proxy, tftp and dhcp
-- hosts: localhost
+
+# - hosts: localhost
+- hosts: all
 
 # Remove if not local!
-  connection: local
+  # connection: local
 
   vars_files:
     - vars/example.yml
@@ -15,5 +17,5 @@
     - { role: tftp }
     - { role: foreman }
     # - { role: foreman_proxy }
-    - { role: passenger_nginx }
+    # - { role: passenger_nginx }
     # - { role: foreman_yml }

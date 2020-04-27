@@ -13,11 +13,9 @@
     host: "{{ item }}"
     password: "{{ mysql_root_password }}"
     check_implicit_admin: true
-    # priv: "*.*:ALL"
     login_user: "{{ mysql_root_username }}"
     login_password: "{{ mysql_root_password }}"
     state: present
-    # login_unix_socket: /var/run/mysqld/mysqld.sock
   with_items: "{{ mysql_root_user_hosts }}"
 
 - name: remove anonymous mysql users

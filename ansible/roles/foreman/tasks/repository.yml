@@ -8,6 +8,7 @@
 - name: configure foreman apt repository
   apt_repository:
     repo: "deb {{ foreman_apt_main_baseurl }} {{ foreman_apt_main_os_version }} {{ foreman_apt_main_release }}"
+    # repo: "dep {{ foreman_apt_main_baseurl }} bionic 2.0"
     state: present
   when: ansible_os_family == "Debian"
 

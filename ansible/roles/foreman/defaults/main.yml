@@ -1,7 +1,9 @@
 ---
 foreman_apt_main_baseurl: "http://deb.theforeman.org/"
-foreman_apt_main_release: stable
+# foreman_apt_main_release: stable
+foreman_apt_main_release: 2.0
 foreman_apt_main_os_version: "{{ ansible_distribution_release }}"
+# ansible_distribution_release
 foreman_apt_main_gpg: 1
 foreman_apt_main_key: "http://deb.theforeman.org/pubkey.gpg"
 
