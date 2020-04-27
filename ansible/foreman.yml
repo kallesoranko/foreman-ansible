@@ -6,7 +6,7 @@
 - hosts: all
 
 # Remove if not local!
-  # connection: local
+  connection: local
 
   vars_files:
     - vars/example.yml
