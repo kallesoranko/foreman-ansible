@@ -1,0 +1,6 @@
+---
+postgresql_root_username: root
+postgresql_root_password: 9rntOYwqC1AW
+
+postgresql_databases: []
+postgreql_users: []

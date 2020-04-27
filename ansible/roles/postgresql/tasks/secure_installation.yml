@@ -1,0 +1,31 @@
+# ---
+# - name: template .my.cnf
+#   template:
+#     src: auth.my.cnf.j2
+#     dest: /root/.my.cnf
+#     owner: root
+#     group: root
+#     mode: 0640
+
+# - name: update mysql root password for all root accounts
+#   mysql_user:
+#     name: root
+#     host: "{{ item }}"
+#     password: "{{ mysql_root_password }}"
+#     check_implicit_admin: true
+#     login_user: "{{ mysql_root_username }}"
+#     login_password: "{{ mysql_root_password }}"
+#     state: present
+#   with_items: "{{ mysql_root_user_hosts }}"
+
+# - name: remove anonymous mysql users
+#   mysql_user:
+#     name: ""
+#     host: "{{ item }}"
+#     state: absent
+#   with_items: "{{ mysql_anon_user_hosts }}"
+
+# - name: remove test database
+#   mysql_db:
+#     name: test
+#     state: absent

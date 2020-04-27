@@ -10,6 +10,18 @@ mysql_users:
     password: supersecret$42
     priv: "foreman.*:ALL"
 
+postgresql_databases: 
+  - name: foreman
+    collation: utf8_unicode_ci
+    encoding: utf8
+
+postgresql_users: 
+  - name: foreman
+    host: localhost
+    password: supersecret$42
+    db: foreman
+    priv: "ALL"
+    
 isc_dhcp_server_subnet:
   - netaddress: 192.168.121.0
     netmask: 255.255.255.0

@@ -1,0 +1,29 @@
+---
+- name: Ensure bash, OpenSSl, and libssl are the latest versions
+  apt: name={{ item }} update_cache=true state=latest
+  with_items:
+    - bash
+    - openssl
+    - libssl-dev
+    - libssl-doc
+  tags: packages
+
+- name: install postgresql
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ postgresql_pkg }}"
+  # register: postgresql_installed
+
+- name: enable postgresql service
+  service:
+    name: "{{ postgresql_service }}"
+    enabled: yes
+
+- name: start postgresql service
+  service:
+    name: "{{ postgresql_service }}"
+    state: started
+
+- name: Ensure the PostgreSQL service is running
+  service: name=postgresql state=started enabled=yes

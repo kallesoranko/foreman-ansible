@@ -1,5 +1,6 @@
 ---
 - name: create mysql databases
+  become: yes
   mysql_db:
     name: "{{ item.name }}"
     collation: "{{ item.collation }}"

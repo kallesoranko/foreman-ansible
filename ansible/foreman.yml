@@ -12,10 +12,11 @@
     - vars/example.yml
   roles:
     - { role: common }
-    - { role: mysql }
+    # - { role: mysql }
+    - { role: postgresql }
     - { role: isc_dhcp_server }
     - { role: tftp }
     - { role: foreman }
-    # - { role: foreman_proxy }
+    - { role: foreman_proxy }
     # - { role: passenger_nginx }
     # - { role: foreman_yml }

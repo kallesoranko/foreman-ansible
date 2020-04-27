@@ -1,0 +1,13 @@
+---
+postgresql_pkg:
+  - postgresql
+  - postgresql-contrib
+  - libpq-dev
+  - python-psycopg2
+
+postgresql_service: postgresql
+
+mysql_root_user_hosts:
+  - localhost
+
+mysql_anon_user_hosts: []
