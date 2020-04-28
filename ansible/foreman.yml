@@ -18,5 +18,5 @@
     - { role: tftp }
     - { role: foreman }
     - { role: foreman_proxy }
-    # - { role: passenger_nginx }
-    # - { role: foreman_yml }
+    - { role: passenger_nginx }
+    - { role: foreman_yml }

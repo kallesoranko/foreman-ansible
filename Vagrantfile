@@ -5,14 +5,18 @@ Vagrant.require_version ">= 1.8.0"
 Vagrant.configure(2) do |config|
 
   config.vm.box = "ubuntu/bionic64"
+  config.vm.network "forwarded_port", guest: 80, host: 80, host_ip: "127.0.0.1"
+  config.vm.synced_folder "./", "/foreman-ansible"
 
-  config.vm.provision "ansible" do |ansible|
-    ansible.verbose = "v"
-    ansible.playbook = "ansible/foreman.yml"
+  config.vm.provider "hyper-v" do |hyperv|
+    # allow nested virtualization
+    hyperv.enable_virtualization_extensions = true
   end
 
-  # config.vm.synced_folder ".", "/foreman-ansible",
-  #   type: "rsync"
+  config.vm.provision "shell", inline: <<-SHELL
+    apt-get update
+    apt-get install -y make ansible
+  SHELL
 
-  config.vm.synced_folder "./", "/foreman-ansible"
+  
 end

@@ -9,5 +9,3 @@
 # - include: secure_installation.yml
 #   when: mysql_installed.changed
 - include: configuration.yml
-
-

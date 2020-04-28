@@ -13,7 +13,6 @@
     name: "{{ item }}"
     state: present
   with_items: "{{ postgresql_pkg }}"
-  # register: postgresql_installed
 
 - name: enable postgresql service
   service:

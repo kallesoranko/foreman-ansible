@@ -15,4 +15,4 @@
   service:
     name: "{{ mysql_service }}"
     state: started
-      
+

@@ -5,9 +5,12 @@ passenger_nginx_apt_https: true
 passenger_nginx_apt_https_pkg:
   - apt-transport-https
   - ca-certificates
+  - dirmngr 
+  - gnupg
 
 passenger_nginx_apt_baseurl: "https://oss-binaries.phusionpassenger.com/apt/passenger"
 passenger_nginx_apt_os_version: "{{ ansible_distribution_release }}"
+# passenger_nginx_apt_os_version: "bionic"
 passenger_nginx_apt_release: main
 passenger_nginx_apt_gpg: 1
 passenger_nginx_apt_key_server: "keyserver.ubuntu.com"
