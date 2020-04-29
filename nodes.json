@@ -1,0 +1,26 @@
+{
+  "nodes": {
+    "foreman.example.com": {
+      ":ip": "192.168.2.10",
+      "ports": [
+        {
+            ":host": 80,
+            ":guest": 80,
+            ":id": "http"
+        }
+      ],
+      ":memory": 2048,
+      ":box": "ubuntu/bionic64",
+      ":bootstrap": "bootstrap-foreman.sh"
+    },
+    "agent.example.com": {
+      ":ip": "192.168.2.11",
+      "ports": [
+          
+      ],
+      ":memory": 1024,
+      ":box": "ubuntu/bionic64",
+      ":bootstrap": "bootstrap-node.sh"
+    }
+  }
+}

@@ -16,13 +16,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     node_name   = node[0] # name of node
     node_values = node[1] # content of node
 
+    config.vbguest.auto_update = true
+    config.vbguest.iso_path = "http://download.virtualbox.org/virtualbox/%{version}/VBoxGuestAdditions_%{version}.iso"
+    
+    config.vm.box = node_values[':box']
+
     config.hostmanager.enabled = true
     config.hostmanager.manage_host = true
     config.hostmanager.ignore_private_ip = false
     config.hostmanager.include_offline = true
 
-    config.vm.box = node_values[':box']
     config.vm.define node_name do |config|
+      # configures all forwarding ports in JSON array
       ports = node_values['ports']
       ports.each do |port|
         config.vm.network :forwarded_port,
@@ -40,7 +45,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       end
 
       config.vm.provision :shell, :path => node_values[':bootstrap']
-      config.vm.synced_folder "./", "/foreman-ansible"
     end
   end
 end
