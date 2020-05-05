@@ -17,14 +17,15 @@ foreman:
     - name: 2-Medium
     - name: 3-Large
 
-  cleanup-medium:
+    cleanup-medium:
     - name: CentOS mirror
     - name: CoreOS mirror
     - name: Debian mirror
     - name: Fedora mirror
     - name: FreeBSD mirror
     - name: OpenSUSE mirror
-    - name: Ubuntu mirror
+    - name: Fedora Atomic mirror
+    - name: RancherOS mirror
 
   cleanup-partition-table:
     - name: AutoYaST entire SCSI disk
@@ -82,9 +83,67 @@ foreman:
     - name: freeipa_register
     - name: http_proxy
     - name: kickstart_networking_setup
-    - name: puppet.conf
+    # - name: puppet.conf
     - name: redhat_register
     - name: saltstack_minion
+    - name: ansible_provisioning_callback
+    - name: ansible_tower_callback_script
+    - name: ansible_tower_callback_service
+    - name: Atomic Kickstart default
+    - name: AutoYaST default iPXE
+    - name: AutoYaST default user data
+    - name: blacklist_kernel_modules
+    - name: bmc_nic_setup
+    - name: built
+    - name: chef_client
+    - name: CloudInit default
+    - name: create_users
+    - name: efibootmgr_netboot
+    # - name: csr_attributes.yaml
+    - name: fips_packages
+    - name: iPXE default local boot
+    - name: iPXE global default
+    - name: iPXE intermediate script
+    - name: Kickstart default PXEGrub
+    - name: Kickstart default PXEGrub2
+    - name: kickstart_ifcfg_bonded_interface
+    - name: kickstart_ifcfg_bond_interface
+    - name: kickstart_ifcfg_generic_interface
+    - name: kickstart_ifcfg_get_identifier_names
+    - name: Kickstart oVirt-RHVH
+    - name: Kickstart oVirt-RHVH PXELinux
+    - name: NX-OS default POAP setup
+    - name: Preseed default PXEGrub2
+    - name: preseed_networking_setup
+    - name: puppetlabs_repo
+    - name: puppet_setup
+    - name: pxegrub2_chainload
+    - name: PXEGrub2 default local boot
+    - name: pxegrub2_discovery
+    - name: PXEGrub2 global default
+    - name: pxegrub2_mac
+    - name: pxegrub_chainload
+    - name: pxegrub_discovery
+    - name: PXEGrub global default
+    - name: PXELinux chain iPXE
+    - name: PXELinux chain iPXE UNDI
+    - name: pxelinux_chainload
+    - name: pxelinux_discovery
+    - name: rancheros_cloudconfig
+    - name: RancherOS provision
+    - name: RancherOS PXELinux
+    - name: saltstack_setup
+    - name: UserData open-vm-tools
+    - name: Windows default finish
+    - name: Windows default iPXE
+    - name: Windows default provision
+    - name: Windows default PXELinux
+    - name: Windows network
+    # - name: Windows peSetup.cmd
+    - name: XenServer default answerfile
+    - name: XenServer default finish
+    - name: XenServer default PXELinux
+    - name: remote_execution_ssh_keys
 
   architecture:
     - name: x86_64
@@ -524,9 +583,9 @@ foreman:
       os: Ubuntu 14.04 LTS
       media: Ubuntu Mirror
       partition: Ubuntu Default
-      model: VMWare VM
+      model: Virtual Machine
       mac: 00:11:22:33:44:55
-      root-pass: admin
+      root-pass: supersecret42
       parameters:
         env: prod
         kernel_params: quiet

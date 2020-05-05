@@ -12,21 +12,34 @@
 - name: copy foreman-yml files to the target machine
   copy:
     src: foreman-yml
-    dest: /opt/
+    dest: ~/
 
 - name: python setup foreman-yml script
   command:
-    /usr/bin/python2 setup.py install chdir=/opt/foreman-yml/
+    /usr/bin/python2 setup.py install chdir=~/foreman-yml/
 
 - name: pip install foreman-yml
   command:
-    pip install /opt/foreman-yml
+    pip install --upgrade requests ~/foreman-yml
 
 - name: copy template to target machine
   copy:
     content: "{{ foreman_yml_config }}"
-    dest: "/opt/foreman-yml/foreman_config.yml"
+    dest: "~/foreman-yml/foreman_config.yml"
 
 - name: configure foreman with foreman-yml
   shell:
-    "foreman-yml /opt/foreman-yml/foreman_config.yml > /opt/foreman-yml/ansible.log"
+    "foreman-yml ~/foreman-yml/foreman_config.yml > ~/foreman-yml/ansible.log"
+
+# - name: pip install foreman-yml
+#   command:
+#     pip install /foreman-ansible/ansible/roles/foreman_yml/files/foreman-yml
+
+# - name: copy template to target machine
+#   copy:
+#     content: "{{ foreman_yml_config }}"
+#     dest: "/foreman-ansible/ansible/roles/foreman_yml/files/foreman-yml/foreman_config.yml"
+
+# - name: configure foreman with foreman-yml
+#   shell:
+#     "foreman-yml /foreman-ansible/ansible/roles/foreman_yml/files/foreman-yml/foreman_config.yml > /foreman-ansible/ansible/roles/foreman_yml/files/foreman-yml/ansible.log"
