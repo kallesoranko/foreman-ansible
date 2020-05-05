@@ -1,5 +1,6 @@
 ---
-foreman_yml_api_url: "http://foreman.example.com:80"
+foreman_yml_api_url: http://localhost:80
+# foreman_yml_api_url: "http://foreman.lab.local:80"
 foreman_yml_api_username: admin
 foreman_yml_api_password: foreman
 

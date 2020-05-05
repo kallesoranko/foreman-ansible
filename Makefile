@@ -4,7 +4,7 @@ all: build run
 
 init:
 	#echo "127.0.0.1" > /tmp/inventory
-	echo "foreman.example.com" > /tmp/inventory
+	echo "foreman.lab.local" > /tmp/inventory
 
 build: 
 	docker build -t foreman-ansible:latest .

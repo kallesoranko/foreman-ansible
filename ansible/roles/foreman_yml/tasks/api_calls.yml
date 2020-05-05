@@ -18,6 +18,10 @@
   command:
     /usr/bin/python2 setup.py install chdir=/opt/foreman-yml/
 
+- name: pip install foreman-yml
+  command:
+    pip install /opt/foreman-yml
+
 - name: copy template to target machine
   copy:
     content: "{{ foreman_yml_config }}"
