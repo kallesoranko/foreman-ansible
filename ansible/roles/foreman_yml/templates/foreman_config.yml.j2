@@ -25,6 +25,7 @@ foreman:
     - name: FreeBSD mirror
     - name: OpenSUSE mirror
     - name: Fedora Atomic mirror
+    - name: Ubuntu mirror
     - name: RancherOS mirror
 
   cleanup-partition-table:
@@ -70,8 +71,8 @@ foreman:
     - name: Preseed default iPXE
     - name: Preseed default PXELinux
     - name: Preseed default user data
-    - name: PXEGrub default local boot
-    - name: PXELinux default local boot
+    # - name: PXEGrub default local boot
+    # - name: PXELinux default local boot
     - name: PXELinux default memdisk
     - name: PXELinux global default
     - name: UserData default
@@ -101,7 +102,7 @@ foreman:
     - name: efibootmgr_netboot
     # - name: csr_attributes.yaml
     - name: fips_packages
-    - name: iPXE default local boot
+    # - name: iPXE default local boot
     - name: iPXE global default
     - name: iPXE intermediate script
     - name: Kickstart default PXEGrub
@@ -118,7 +119,7 @@ foreman:
     - name: puppetlabs_repo
     - name: puppet_setup
     - name: pxegrub2_chainload
-    - name: PXEGrub2 default local boot
+    # - name: PXEGrub2 default local boot
     - name: pxegrub2_discovery
     - name: PXEGrub2 global default
     - name: pxegrub2_mac
@@ -576,7 +577,7 @@ foreman:
         bar: baz
     
   host:
-    - name: testhost
+    - name: agent
       domain: lab.local
       architecture: x86_64
       hostgroup: ks-devops-test
@@ -585,7 +586,7 @@ foreman:
       media: Ubuntu Mirror
       partition: Ubuntu Default
       model: Virtual Machine
-      mac: 00:11:22:33:44:55
+      mac: 08:00:27:29:f9:13
       root-pass: supersecret42
       parameters:
         env: prod

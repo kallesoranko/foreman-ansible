@@ -1,0 +1,27 @@
+[
+    {
+        ":host": 67,
+        ":guest": 67,
+        ":id": "DHCP"
+    },
+    {
+        ":host": 69,
+        ":guest": 69,
+        ":id": "TFTP"
+    },
+    {
+        ":host": 8080,
+        ":guest": 80,
+        ":id": "http"
+    },
+    {
+        ":host": 443,
+        ":guest": 443,
+        ":id": "https"
+    },
+    {
+        ":host": 8000,
+        ":guest": 8000,
+        ":id": "foreman-proxy"
+    }
+]

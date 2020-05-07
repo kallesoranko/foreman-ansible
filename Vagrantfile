@@ -32,11 +32,17 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       end
 
       config.vm.hostname = node_name
-      config.vm.network :private_network, ip: node_values[':ip']
+      # config.vm.network "private_network", ip: node_values[':ip'], :name => 'vboxnet0', :adapter => 2
+      config.vm.network "private_network", type: dhcp
+
+      # config.vm.network "private_network", :type => 'dhcp', :name => 'vboxnet0', :adapter => 2
+      # config.vm.network "public_network", :adapter => 2
+
 
       config.vm.provider :virtualbox do |vb|
         vb.customize ["modifyvm", :id, "--memory", node_values[':memory']]
         vb.customize ["modifyvm", :id, "--name", node_name]
+        # vb.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
       end
 
       config.vm.provision :shell, :path => node_values[':bootstrap']

@@ -2,42 +2,14 @@
   "nodes": {
     "foreman.lab.local": {
       ":ip": "192.168.2.10",
-      "ports": [
-        {
-          ":host": 67,
-          ":guest": 67,
-          ":id": "DHCP"
-        },
-        {
-          ":host": 69,
-          ":guest": 69,
-          ":id": "TFTP"
-        },
-        {
-            ":host": 8080,
-            ":guest": 80,
-            ":id": "http"
-        },
-        {
-          ":host": 443,
-          ":guest": 443,
-          ":id": "https"
-        },
-        {
-          ":host": 8000,
-          ":guest": 8000,
-          ":id": "foreman-proxy"
-        }
-      ],
+      "ports": [],
       ":memory": 2048,
       ":box": "ubuntu/bionic64",
       ":bootstrap": "bootstrap-foreman.sh"
     },
     "agent.lab.local": {
       ":ip": "192.168.2.11",
-      "ports": [
-          
-      ],
+      "ports": [],
       ":memory": 1024,
       ":box": "ubuntu/bionic64",
       ":bootstrap": "bootstrap-node.sh"

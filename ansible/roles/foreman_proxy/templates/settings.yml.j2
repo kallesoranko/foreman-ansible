@@ -15,9 +15,14 @@
 # Hosts which the proxy accepts connections from
 # commenting the following lines would mean every verified SSL connection allowed
 #:trusted_hosts: localhost 127.0.0.1 foreman.lab.local
-:trusted_hosts: 127.0.0.1
+#:trusted_hosts: [ localhost ]
 #- foreman.prod.domain
 #- foreman.dev.domain
+:trusted_hosts:
+  - localhost
+  - 127.0.0.1
+  - foreman.lab.local
+
 
 :foreman_url: {{ foreman_proxy_foreman_url }}
 
@@ -36,7 +41,8 @@
 #:https_port: 8443
 
 :{{ foreman_proxy_protocol }}_port: {{ foreman_proxy_port }}
-:bind_host: {{ foreman_proxy_bind_host }}
+#:bind_host: {{ foreman_proxy_bind_host }}
+:bind_host: localhost
 
 # Shared options for virsh DNS/DHCP provider
 :virsh_network: default
@@ -46,4 +52,4 @@
 :log_file: /var/log/foreman-proxy/proxy.log
 # Uncomment and modify if you want to change the log level
 # WARN, DEBUG, ERROR, FATAL, INFO, UNKNOWN
-:log_level: ERROR
+:log_level: DEBUG
